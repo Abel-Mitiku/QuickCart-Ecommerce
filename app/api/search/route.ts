@@ -5,7 +5,7 @@ export async function POST(req: Request) {
   const { term } = await req.json();
 
   if (!term) {
-    return { error: "No query", success: false };
+    return NextResponse.json({ error: "No query", success: false });
   }
   const result = await FindProduct(term);
   return NextResponse.json(result);
