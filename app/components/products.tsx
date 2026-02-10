@@ -311,27 +311,27 @@ export function Products() {
           </div>
         </div>
       )}
-      <div className="grid grid-cols mt-8 min-[900px]:grid-cols-3 max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
         {products &&
           products.map((product) => (
             <div
               key={product._id}
-              className="border rounded shadow-lg overflow-hidden m-2 flex flex-col items-center max-[1000px]:w-[250px] max-[1200px]:w-[280px] min-[1200px]:w-[350px] min-[900px]:h-[300px] max-[600px]:w-[400px]"
+              className="border rounded shadow-lg overflow-hidden flex flex-col items-center"
             >
               <div
-                className="flex flex-col items-center bg-gray-100 w-[95%] relative"
+                className="flex flex-col items-center bg-gray-100 w-full relative group cursor-pointer"
                 onClick={() => router.push(`product?id=${product._id}`)}
               >
                 <img
                   src={product.src}
                   title="Product image"
-                  className="h-[250px] p-4"
+                  className="h-[250px] p-4 object-contain"
                 />
-                <div className="flex text-black mb-4 font-bold">
+                <div className="flex text-black mb-4 font-bold px-4">
                   <p className="mr-4">{product.type}</p>
-                  <p>Price:${product.price}</p>
+                  <p>Price: ${product.price}</p>
                 </div>
-                <div className="absolute top-0 opacity-0 z-20 hover:bg-white/40 hover:opacity-100 w-full h-full flex flex-col items-center justify-center transition-all duration-100 translate-y-12 hover:translate-y-0">
+                <div className="absolute top-0 opacity-0 z-20 group-hover:bg-white/40 group-hover:opacity-100 w-full h-full flex flex-col items-center justify-center transition-all duration-100 group-hover:translate-y-0 translate-y-12">
                   <button
                     className="bg-orange-600 h-12 w-34 rounded-full cursor-pointer text-white font-bold hover:bg-gray-100 hover:text-orange-600 hover:border hover:border-orange-600"
                     onClick={(e) => {
