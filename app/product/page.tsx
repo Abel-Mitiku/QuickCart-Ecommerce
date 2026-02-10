@@ -15,11 +15,15 @@ interface Product {
 
 export default function ProductDetail() {
   const searchParams = useSearchParams();
-  const productId = searchParams.get("id")?.toString();
+  const [productId, setProductId] = useState<string | null>(null);
   const [product, setProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(false);
   const [payment, setPayment] = useState<boolean>(false);
+
+  useEffect(() => {
+    setProductId(searchParams.get("id")?.toString() ?? null);
+  }, [searchParams]);
 
   useEffect(() => {
     const fetchDetail = async () => {
