@@ -11,6 +11,6 @@ export async function POST(req: Request) {
     const update = await updateProduct(product);
     return NextResponse.json(update);
   } catch (err: any) {
-    return { error: err.message, success: false };
+    return NextResponse.json({ error: err.message, success: false });
   }
 }
