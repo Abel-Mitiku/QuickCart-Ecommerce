@@ -4,12 +4,14 @@ import { useState } from "react";
 import { useEffect } from "react";
 import gsap from "gsap";
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 
 export function FirstSlider() {
   const [current, setCurrent] = useState<number>(0);
   const dots = [useRef(null), useRef(null), useRef(null)];
   const slides = [useRef(null), useRef(null), useRef(null)];
   const interval = useRef<NodeJS.Timeout>(null);
+  const router = useRouter();
 
   useEffect(() => {
     slides.map((slide) =>
@@ -71,7 +73,10 @@ export function FirstSlider() {
                 everything is included in this offer. Shop smarter, save more,
                 and make every purchase count today.
               </p>
-              <button className="bg-orange-600 h-12 w-34 mt-6 rounded cursor-pointer text-white font-bold hover:bg-gray-300 hover:text-orange-600 hover:border hover:border-orange-600">
+              <button
+                className="bg-orange-600 h-12 w-34 mt-6 rounded cursor-pointer text-white font-bold hover:bg-gray-300 hover:text-orange-600 hover:border hover:border-orange-600"
+                onClick={() => router.push("/products")}
+              >
                 Shop now
               </button>
             </div>
@@ -86,7 +91,10 @@ export function FirstSlider() {
                 has it all. Fresh designs, premium quality, and prices that make
                 sense. Explore what’s new and upgrade your everyday look today.
               </p>
-              <button className="bg-orange-600 h-12 w-34 mt-6 rounded cursor-pointer text-white font-bold hover:bg-gray-300 hover:text-orange-600 hover:border hover:border-orange-600">
+              <button
+                className="bg-orange-600 h-12 w-34 mt-6 rounded cursor-pointer text-white font-bold hover:bg-gray-300 hover:text-orange-600 hover:border hover:border-orange-600"
+                onClick={() => router.push("/products")}
+              >
                 Shop now
               </button>
             </div>
@@ -104,7 +112,10 @@ export function FirstSlider() {
                 straight to your door. Hurry up and take advantage of free
                 shipping while it lasts.
               </p>
-              <button className="bg-orange-600 h-12 w-34 mt-6 rounded cursor-pointer text-white font-bold hover:bg-gray-300 hover:text-orange-600 hover:border hover:border-orange-600">
+              <button
+                className="bg-orange-600 h-12 w-34 mt-6 rounded cursor-pointer text-white font-bold hover:bg-gray-300 hover:text-orange-600 hover:border hover:border-orange-600"
+                onClick={() => router.push("/products")}
+              >
                 Shop now
               </button>
             </div>

@@ -99,7 +99,7 @@ export function Product() {
                 />
                 <div className="flex text-black mb-4 font-bold">
                   <p className="mr-4">{product.type}</p>
-                  <p>Price:{product.price}</p>
+                  <p>Price:${product.price}</p>
                 </div>
                 <div className="absolute top-0 opacity-0 hover:bg-white/40 hover:opacity-100 w-full h-full flex flex-col items-center justify-center transition-all duration-100 translate-y-12 hover:translate-y-0">
                   <button

@@ -1,7 +1,9 @@
 "use client";
+import { useRouter } from "next/navigation";
 import "../style.css";
 
 export function Arrival() {
+  const router = useRouter();
   return (
     <div className="bg-[url('/arrival-bg.png')] bg-top bg-cover h-[500px] relative w-full">
       <div className="arrival">
@@ -18,7 +20,10 @@ export function Arrival() {
             purchase. Upgrade your lifestyle today with products designed to
             impress and perform.
           </p>
-          <button className="bg-orange-600 h-12 w-34 mt-6 rounded cursor-pointer text-white font-bold hover:bg-gray-300 hover:text-orange-600 hover:border hover:border-orange-600">
+          <button
+            className="bg-orange-600 h-12 w-34 mt-6 rounded cursor-pointer text-white font-bold hover:bg-gray-300 hover:text-orange-600 hover:border hover:border-orange-600"
+            onClick={() => router.push("/products")}
+          >
             Shop now
           </button>
         </div>

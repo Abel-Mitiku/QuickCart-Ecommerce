@@ -329,7 +329,7 @@ export function Products() {
                 />
                 <div className="flex text-black mb-4 font-bold">
                   <p className="mr-4">{product.type}</p>
-                  <p>Price:{product.price}</p>
+                  <p>Price:${product.price}</p>
                 </div>
                 <div className="absolute top-0 opacity-0 z-20 hover:bg-white/40 hover:opacity-100 w-full h-full flex flex-col items-center justify-center transition-all duration-100 translate-y-12 hover:translate-y-0">
                   <button
@@ -357,7 +357,10 @@ export function Products() {
             </div>
           ))}
       </div>
-      <button className="bg-orange-600 h-12 pl-8 pr-8 duration-200 z-10 mt-6 mb-8 rounded cursor-pointer text-white font-bold hover:bg-white hover:text-orange-600 hover:border hover:border-orange-60">
+      <button
+        className="bg-orange-600 h-12 pl-8 pr-8 duration-200 z-10 mt-6 mb-8 rounded cursor-pointer text-white font-bold hover:bg-white hover:text-orange-600 hover:border hover:border-orange-60"
+        onClick={() => router.push("/products")}
+      >
         View all products
       </button>
     </div>
