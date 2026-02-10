@@ -1,0 +1,95 @@
+.none-overflow-x{
+    overflow-x: hidden;
+}
+.overflow-y-none{
+    overflow-y: none;
+}
+
+.arrival{
+    position: absolute;
+}
+
+
+@media(max-width:800px){
+    .card{
+        width: 450px;
+        height: 250px;
+    }
+    .blog{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .text-div{
+        margin-top: 60px;
+    }
+    .slider-text{
+        width: 200px;
+    }
+    .navigation{
+        display: none;
+    }
+    .burger{
+        display: block;
+    }
+}
+@media(min-width:500px){
+    .slider-text{
+        width: 500px;
+    }
+}
+@media(min-width:800px){
+    .text-div{
+        margin-top: 80px;
+    }
+    .burger{
+        display: none;
+    }
+    .card{
+        height: 300px;
+    }
+    
+}
+
+@media (min-width:1200px){
+    .card{
+        width: 380px;
+    }
+    .arrival{
+        width: 500px;
+    }
+}
+@media (min-width:700px){
+    .blog{
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .arrival{
+        right: 100px;
+         width: 500px;
+    }
+}
+
+@media (max-width:700px){
+    .arrival{
+        right: 10px;
+        width: 500px;
+    }
+}
+
+
+@media(max-width:500px){
+    .blog{
+        margin-left: 10px;
+        margin-right: 10px;
+        align-items: center;
+    }
+    .card{
+        width: 450px;
+        height: 250px;
+    }
+    .arrival{
+        right: 0;
+        width: 450px;
+    }
+}
