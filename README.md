@@ -46,7 +46,8 @@ Full-stack e-commerce application built with **Next.js 14** (App Router) + **Nod
 </td>
   </tr>
   <tr>
-    <td><img width="1859" height="941" alt="image" src="https://github.com/user-attachments/assets/10e4d795-cdd1-4a9e-b47b-744f835315dd" />
+    <td><img width="1884" height="958" alt="Screenshot 2026-02-10 211953" src="https://github.com/user-attachments/assets/4af85ace-e472-498c-9927-0ec2bf7e89d8" />
+
 </td>
     <td><img width="1855" height="946" alt="image" src="https://github.com/user-attachments/assets/ae2dd3c1-d2b5-43a2-a336-6f7aada15932" />
 </td>
