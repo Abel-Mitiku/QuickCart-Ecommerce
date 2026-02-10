@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
@@ -10,7 +11,7 @@ interface Product {
   price: number;
 }
 
-export function SearchClient() {
+export default function SearchClient() {
   const searchParams = useSearchParams();
   const term = searchParams.get("q")?.toString();
   const [result, setResult] = useState<Product[] | null>(null);
@@ -116,7 +117,7 @@ export function SearchClient() {
             {result.map((product) => (
               <div
                 key={product._id}
-                className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200"
+                className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 cursor-pointer"
                 onClick={() => router.push(`/product?id=${product._id}`)}
               >
                 <div className="h-64 bg-gray-50 flex items-center justify-center p-6">

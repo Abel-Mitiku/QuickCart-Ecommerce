@@ -1,10 +1,7 @@
-"use client";
-import { SearchClient } from "./searchClient";
+export const dynamic = "force-dynamic";
 
-export default function Page() {
-  return (
-    <div>
-      <SearchClient />
-    </div>
-  );
+import SearchClient from "./searchClient";
+
+export default function SearchPage() {
+  return <SearchClient />;
 }
