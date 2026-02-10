@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     const cookieStore = await cookies();
     const token = cookieStore.get("access-token")?.value.toString();
     if (!token) {
-      return { error: "Not logged in", success: false };
+      return NextResponse.json({ error: "Not logged in", success: false });
     }
     const decoded = (await verifyJWT(token, process.env.JWT_SECRET!)) as {
       userId: string;
