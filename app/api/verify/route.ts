@@ -8,7 +8,7 @@ export async function GET(req: Request) {
   const token = searchParams.get("token");
 
   if (!token) {
-    return { error: "token missing", success: false };
+    return NextResponse.json({ error: "token missing", success: false });
   }
   const result = await verifyEmail(token);
   return NextResponse.json({ result });
