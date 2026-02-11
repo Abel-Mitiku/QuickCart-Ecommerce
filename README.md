@@ -29,6 +29,31 @@ Full-stack e-commerce application built with **Next.js 14** (App Router) + **Nod
 - ✅ Rate limiting to prevent brute force
 - ✅ Environment variables for secrets
 
+### Screenshots
+
+<table>
+  <tr>
+    <td><img width="1866" height="947" alt="image" src="https://github.com/user-attachments/assets/2778eff0-15eb-482b-890a-f40524bf6bb9" />
+
+</td>
+    <td><img width="1861" height="946" alt="image" src="https://github.com/user-attachments/assets/50951a75-8b9e-4075-8881-55f0a6e552ca" />
+</td>
+  </tr>
+  <tr>
+    <td><img width="1857" height="963" alt="image" src="https://github.com/user-attachments/assets/09df5cbf-31ca-4294-9fb9-eb7462150a5a" />
+</td>
+    <td><img width="1859" height="941" alt="image" src="https://github.com/user-attachments/assets/0aa9080f-1de0-470b-81fd-ec3943e2abb9" />
+</td>
+  </tr>
+  <tr>
+    <td><img width="1884" height="958" alt="Screenshot 2026-02-10 211953" src="https://github.com/user-attachments/assets/4af85ace-e472-498c-9927-0ec2bf7e89d8" />
+
+</td>
+    <td><img width="1855" height="946" alt="image" src="https://github.com/user-attachments/assets/ae2dd3c1-d2b5-43a2-a336-6f7aada15932" />
+</td>
+  </tr>
+</table>
+
 ## 🛠️ Tech Stack
 
 - **Frontend**: Next.js 14, React, Tailwind CSS, Lucide React
