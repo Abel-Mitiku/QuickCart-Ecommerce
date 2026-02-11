@@ -31,18 +31,20 @@ export async function requestRefreshToken() {
         refreshToken,
         storedRefreshToken.refreshToken,
       );
+
       if (isValid) {
         const newAccessToken = Jwt.sign(
-          { userId: result.userId },
+          { userId: result.userId, session: storedRefreshToken._id },
           process.env.JWT_SECRET!,
           { expiresIn: "15m" },
         );
         console.log("token generated");
         cookieStore.set("access-token", newAccessToken, {
-          httpOnly: false,
-          secure: true,
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
           sameSite: "strict",
           path: "/",
+          maxAge: 15 * 60,
         });
         console.log("done");
         return { message: "token generated", success: true };
