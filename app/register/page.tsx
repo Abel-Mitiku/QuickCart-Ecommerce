@@ -251,53 +251,17 @@ export default function RegisterPage() {
                     onChange={(e) => {
                       let value = e.target.value;
 
+                      // Remove all non-digit and non-+ characters
                       value = value.replace(/[^\d+]/g, "");
 
-                      if (!value.startsWith("+") && value) {
+                      // Auto-add + at the beginning if digits are entered but no +
+                      if (value && !value.startsWith("+")) {
                         value = "+" + value;
                       }
 
-                      if (value.startsWith("+")) {
-                        const digits = value.slice(1);
-                        if (digits.length > 0) {
-                          value = "+" + digits;
-                          if (digits.length > 1) {
-                            value = "+" + digits.slice(0, 1) + " ";
-                            if (digits.length > 4) {
-                              value =
-                                "+" +
-                                digits.slice(0, 1) +
-                                " (" +
-                                digits.slice(1, 4) +
-                                ") ";
-                              if (digits.length > 7) {
-                                value =
-                                  "+" +
-                                  digits.slice(0, 1) +
-                                  " (" +
-                                  digits.slice(1, 4) +
-                                  ") " +
-                                  digits.slice(4, 7) +
-                                  "-" +
-                                  digits.slice(7);
-                              } else if (digits.length > 4) {
-                                value =
-                                  "+" +
-                                  digits.slice(0, 1) +
-                                  " (" +
-                                  digits.slice(1, 4) +
-                                  ") " +
-                                  digits.slice(4);
-                              }
-                            } else {
-                              value =
-                                "+" +
-                                digits.slice(0, 1) +
-                                " " +
-                                digits.slice(1);
-                            }
-                          }
-                        }
+                      // Allow only one + at the beginning
+                      if (value.startsWith("++")) {
+                        value = "+" + value.slice(2);
                       }
 
                       setPhone(value);
@@ -311,7 +275,7 @@ export default function RegisterPage() {
                     className={`block w-full pl-10 pr-4 py-3 border text-slate-800 ${
                       errors.phone ? "border-red-500" : "border-gray-300"
                     } rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500`}
-                    placeholder="+1 (212) 555-0199"
+                    placeholder="+1234567890"
                     required
                   />
                 </div>
@@ -319,7 +283,7 @@ export default function RegisterPage() {
                   <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
                 )}
                 <p className="mt-1 text-xs text-gray-500">
-                  Format: +1 (123) 456-7890
+                  Include country code (e.g., +44 for UK, +91 for India)
                 </p>
               </div>
 
