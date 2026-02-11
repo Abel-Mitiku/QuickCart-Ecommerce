@@ -249,7 +249,58 @@ export default function RegisterPage() {
                     value={phone}
                     name="phone"
                     onChange={(e) => {
-                      setPhone(e.target.value);
+                      let value = e.target.value;
+
+                      value = value.replace(/[^\d+]/g, "");
+
+                      if (!value.startsWith("+") && value) {
+                        value = "+" + value;
+                      }
+
+                      if (value.startsWith("+")) {
+                        const digits = value.slice(1);
+                        if (digits.length > 0) {
+                          value = "+" + digits;
+                          if (digits.length > 1) {
+                            value = "+" + digits.slice(0, 1) + " ";
+                            if (digits.length > 4) {
+                              value =
+                                "+" +
+                                digits.slice(0, 1) +
+                                " (" +
+                                digits.slice(1, 4) +
+                                ") ";
+                              if (digits.length > 7) {
+                                value =
+                                  "+" +
+                                  digits.slice(0, 1) +
+                                  " (" +
+                                  digits.slice(1, 4) +
+                                  ") " +
+                                  digits.slice(4, 7) +
+                                  "-" +
+                                  digits.slice(7);
+                              } else if (digits.length > 4) {
+                                value =
+                                  "+" +
+                                  digits.slice(0, 1) +
+                                  " (" +
+                                  digits.slice(1, 4) +
+                                  ") " +
+                                  digits.slice(4);
+                              }
+                            } else {
+                              value =
+                                "+" +
+                                digits.slice(0, 1) +
+                                " " +
+                                digits.slice(1);
+                            }
+                          }
+                        }
+                      }
+
+                      setPhone(value);
                       if (errors.phone) {
                         setErrors((prev: Record<string, string>) => ({
                           ...prev,
@@ -267,6 +318,9 @@ export default function RegisterPage() {
                 {errors.phone && (
                   <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
                 )}
+                <p className="mt-1 text-xs text-gray-500">
+                  Format: +1 (123) 456-7890
+                </p>
               </div>
 
               <div>
