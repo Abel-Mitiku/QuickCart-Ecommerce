@@ -24,6 +24,7 @@ export function Products() {
   const [productId, setProductId] = useState<string | null>(null);
   const [productPrice, setProductPrice] = useState<number>(1);
   const router = useRouter();
+  const [hover, setHover] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -319,7 +320,9 @@ export function Products() {
               className="border rounded shadow-lg overflow-hidden flex flex-col items-center"
             >
               <div
-                className="flex flex-col items-center bg-gray-100 w-full relative group cursor-pointer"
+                className={`flex flex-col items-center bg-gray-100 w-full relative group cursor-pointer ${!hover && "z-10"}`}
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
                 onClick={() => router.push(`product?id=${product._id}`)}
               >
                 <img
@@ -331,7 +334,9 @@ export function Products() {
                   <p className="mr-4">{product.type}</p>
                   <p>Price: ${product.price}</p>
                 </div>
-                <div className="absolute top-0 opacity-0 z-20 group-hover:bg-white/40 group-hover:opacity-100 w-full h-full flex flex-col items-center justify-center transition-all duration-100 group-hover:translate-y-0 translate-y-12">
+                <div
+                  className={`absolute top-0 opacity-0 group-hover:bg-white/40 group-hover:opacity-100 w-full h-full flex flex-col items-center justify-center transition-all duration-100 group-hover:translate-y-0 translate-y-12 ${hover && "z-10"}`}
+                >
                   <button
                     className="bg-orange-600 h-12 w-34 rounded-full cursor-pointer text-white font-bold hover:bg-gray-100 hover:text-orange-600 hover:border hover:border-orange-600"
                     onClick={(e) => {
@@ -358,7 +363,7 @@ export function Products() {
           ))}
       </div>
       <button
-        className="bg-orange-600 h-12 pl-8 pr-8 duration-200 z-10 mt-6 mb-8 rounded cursor-pointer text-white font-bold hover:bg-white hover:text-orange-600 hover:border hover:border-orange-60"
+        className="bg-orange-600 h-12 pl-8 pr-8 duration-200 mt-6 mb-8 rounded cursor-pointer text-white font-bold hover:bg-white hover:text-orange-600 hover:border hover:border-orange-60"
         onClick={() => router.push("/products")}
       >
         View all products
