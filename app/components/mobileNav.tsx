@@ -26,7 +26,6 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
 
-  // Close nav and reset search when navigating
   const handleNavigation = (path: string) => {
     if (path === pathname) return;
     router.push(path);
@@ -34,17 +33,15 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
     onClose();
   };
 
-  // Handle search submission
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
+      router.push(`/search?q=${searchQuery}`);
       setIsSearchActive(false);
       onClose();
     }
   };
 
-  // Handle search button click
   const triggerSearch = () => {
     if (searchQuery.trim()) {
       handleSearch(new Event("submit") as unknown as React.FormEvent);
@@ -55,7 +52,6 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
 
   if (!isOpen) return null;
 
-  // Helper to check active state
   const isActive = (path: string) =>
     pathname === path || (path === "/" && pathname === "/");
 
