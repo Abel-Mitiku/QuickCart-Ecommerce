@@ -11,6 +11,7 @@ import {
   LogOut,
 } from "lucide-react";
 import { set } from "mongoose";
+import { useRouter } from "next/navigation";
 
 interface user {
   _id: string;
@@ -33,6 +34,7 @@ export default function AccountDashboard() {
   const [activeTab, setActiveTab] = useState("overview");
   const [user, setUser] = useState<user | null>(null);
   const [orders, setOrders] = useState<order[] | null>(null);
+  const router = useRouter();
 
   const handleLogout = async () => {
     const check = window.confirm("Do you want to log out?");
@@ -318,7 +320,10 @@ export default function AccountDashboard() {
                         <Package className="w-8 h-8 text-gray-400" />
                       </div>
                       <p className="text-gray-600 mb-4">No orders yet</p>
-                      <button className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700">
+                      <button
+                        className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700"
+                        onClick={() => router.push("/products")}
+                      >
                         Start Shopping
                       </button>
                     </div>

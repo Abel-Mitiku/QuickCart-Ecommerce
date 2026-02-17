@@ -24,7 +24,6 @@ export function Products() {
   const [productId, setProductId] = useState<string | null>(null);
   const [productPrice, setProductPrice] = useState<number>(1);
   const router = useRouter();
-  const [hover, setHover] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -320,9 +319,7 @@ export function Products() {
               className="border rounded shadow-lg overflow-hidden flex flex-col items-center"
             >
               <div
-                className={`flex flex-col items-center bg-gray-100 w-full relative group cursor-pointer ${!hover && "z-10"}`}
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
+                className={`flex flex-col items-center bg-gray-100 w-full relative group cursor-pointer`}
                 onClick={() => router.push(`product?id=${product._id}`)}
               >
                 <img
@@ -335,7 +332,7 @@ export function Products() {
                   <p>Price: ${product.price}</p>
                 </div>
                 <div
-                  className={`absolute top-0 opacity-0 group-hover:bg-white/40 group-hover:opacity-100 w-full h-full flex flex-col items-center justify-center transition-all duration-100 group-hover:translate-y-0 translate-y-12 ${hover && "z-10"}`}
+                  className={`absolute top-0 opacity-0 hidden md:flex group-hover:bg-white/40 group-hover:opacity-100 w-full h-full flex flex-col items-center justify-center transition-all duration-100 group-hover:translate-y-0 translate-y-12`}
                 >
                   <button
                     className="bg-orange-600 h-12 w-34 rounded-full cursor-pointer text-white font-bold hover:bg-gray-100 hover:text-orange-600 hover:border hover:border-orange-600"
@@ -347,7 +344,7 @@ export function Products() {
                     Add to cart
                   </button>
                   <button
-                    className="bg-slate-800 z-20 h-12 w-34 mt-2 rounded-full cursor-pointer text-white font-bold hover:bg-gray-100 hover:text-slate-800 hover:border hover:border-slate-800"
+                    className="bg-slate-800 h-12 w-34 mt-2 rounded-full cursor-pointer text-white font-bold hover:bg-gray-100 hover:text-slate-800 hover:border hover:border-slate-800"
                     onClick={(e) => {
                       e.stopPropagation();
                       setProductId(product._id);
